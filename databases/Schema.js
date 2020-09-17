@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
 const db = require('./dbconnect.js');
 const Schema = mongoose.Schema
+mongoose.Promise = global.Promise;
 // sign up schema
-const signUp = new Schema({
-    name: 'string',
-    lastName: 'string',
-    email: 'string',
-    age: 'Number',
-    password: 'string',
+const user = new Schema({
+    name: String,
+    lastName: String,
+    email: String,
+    age: Number,
+    password: String,
 });
-const Sign = mongoose.model('sign', signUp);
+const User = mongoose.model('user', user);
 
-module.exports = Sign;
+module.exports = User;
 
 // // login schema
 // const logIn = new Schema({

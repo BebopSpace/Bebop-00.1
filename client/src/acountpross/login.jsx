@@ -6,18 +6,18 @@ class Login extends React.Component {
         this.state = {
             name: '',
             password: '',
-            signUpData :{
-                name: '',
-                password: ''
-            }
+            // signUpData : {
+            //     name: '',
+            //     password: ''
+            // }
         }
         this.check = this.check.bind(this);
         this.getInpValue = this.getInpValue.bind(this);
     }
     componentDidMount() {
-        axios.get('/signup')
-        .then( results => this.setState({ signUpData[name] : results.data }))
-        .then( results => this.setState({ signUpData[password] : results.data }))
+        axios.post('/signup',this.state)
+        .then(results => this.setState({ name : results.data }))
+        .then(results => this.setState({ password : results.data }))
         .catch(err => console.log('[client side login]',err))
     }
 

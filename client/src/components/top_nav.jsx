@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Home from './Home.jsx';
 import About from './About.jsx';
 import Contact from './Contact.jsx';
@@ -38,7 +37,7 @@ class Nav extends React.Component {
 
 
     render() {
-        const inp = <input type="text" placeholder="Search..." className="inp"    ></input>;
+        const inp = <input type="text" placeholder="Search..." className="form-control mr-sm-2"     ></input>;
         return (
             <div className="container">
                 <div className="navbar navbar-dark bg-dark">
@@ -52,11 +51,11 @@ class Nav extends React.Component {
                     <div>
                         {this.renderView}
                     </div>
-                    
+
                 </div>
             </div>
         )
     }
 }
 
-ReactDOM.render(<Nav />, document.getElementById('root'));
+export default Nav;
