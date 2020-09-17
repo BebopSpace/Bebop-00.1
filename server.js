@@ -1,13 +1,25 @@
-var  express = require('express');
+var express = require('express');
 var app = express();
 // body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // ------------------------------------------------
-const  port = 3003; 
-
+const port = 3003;
+//  mongoose
+const Sign = require('./databases/Schema.js')
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb://localhost/account')
+const db = require('./databases/dbconnect.js')
 app.use(express.static(__dirname + '/client/dist'))
+// sign up
+app.post('/signup', (req, res) => {
+    const user = new Sign(req.body)
+    user.save({})
+        .then(res => res.send('saved successfully !'))
+        .catch(err => res.status(404).send('[server side]', err))
+})
 
 // app.get('https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1',(req, res) =>{
 
@@ -17,6 +29,14 @@ app.use(express.static(__dirname + '/client/dist'))
 // })
 
 
- app.listen(port,() => {
-     console.log(`I'm listeting on port  ${port}`);
- })
+app.listen(port, () => {
+    console.log(`I'm listeting on port  ${port}`);
+})
+
+// // log in
+// app.post('/login', (req, res) => {
+//     const client = new Log(req.body)
+//     client.save({})
+//         .then(res => res.send('saved successfully !'))
+//         .catch(err => res.status(404).send('[server side]', err))
+// })

@@ -18,11 +18,18 @@ class Home extends React.Component {
 
     render() {
         console.log('container ======>', this.state.dataContainer);
-        // this.state.dataContainer.map((data => console.log(data)))
+        
         return (
             <div className="container">
                 <div className="navbar navbar-dark bg-dark">
-
+                    <h1>test</h1>
+                   { this.state.dataContainer.map((data => 
+                             <div className="">
+                                 <h1>{data.date}</h1>
+                                 <img src={data.img}></img>
+                                 
+                             </div>
+                   ))}
                 </div>
             </div>
         )
