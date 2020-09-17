@@ -20,12 +20,12 @@ class Signup extends React.Component {
     
     sign() {
         axios.post('/signup', this.state)
-            .then(res => console.log(res))
-            .catch(err => console.log('[client side]', err))
+         .then(res => console.log(res))
+          .catch(err => console.log('[client side]', err))
     }
 
     getValues(event, text) {
-        ecent.preventDefault();
+        event.preventDefault();
         this.setState({ [text]: event.target.value })
     }
 
@@ -34,11 +34,12 @@ class Signup extends React.Component {
             return <Login data={this.state} />
         }
     }
+    
 
     render() {
-        const submit = <button onClick={() => this.changeView('logIn')} ></button>
+        const submit = <button onClick={() => this.changeView('logIn')}  onClick={() => this.sign()} className="btn btn-dark">Submit</button>
         return (
-            <div className="container">
+            <div className="signUp">
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="Enter your name..." onChange={(event) => this.getValues(event, 'name')} value={this.state.name}></input>
                     <input type="text" className="form-control" placeholder="Enter your Lastname..." onChange={(event) => this.getValues(event, 'lastName')} value={this.state.lastName}></input>

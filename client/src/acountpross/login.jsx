@@ -26,15 +26,14 @@ class Login extends React.Component {
     }
     // onclick button
     check() {
-        if(this.state.name === this.state.signUpData.name && this.state.password === this.state.signUpData.password){ return <Nav/> }
-    }
+        if(this.state.name === this.state.signUpData.name && this.state.password === this.state.signUpData.password){ return <Nav/> } }
     render() {
-        const btn = <button type="button" className="btn btn-dark"  onClick={() => this.check()}></button>
+        const btn = <button type="button" className="btn btn-dark"  onClick={() => this.check()}>Submit</button>
         return (
-            <div className="container">
+            <div className="login">
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" onChange={(event) => this.check(event, 'name')} value={this.state.name}></input>
-                    <input type="text" className="form-control" onChange={(event) => this.check(event, 'password')} value={this.state.password}></input>
+                    <input type="text" className="form-control" className="form-control mr-sm-2" onChange={(event) => this.check(event, 'name')} value={this.state.name}></input>
+                    <input type="text" className="form-control" className="form-control mr-sm-2" onChange={(event) => this.check(event, 'password')} value={this.state.password}></input>
                     {btn}
                 </div>
             </div>
