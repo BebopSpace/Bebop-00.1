@@ -30,8 +30,9 @@ app.post('/login',async (req, res) => {
         for(var d of data) {
             // console.log('d',d.name, d.password)
             for(var e in req.body) {
+                console.log('req.body',req.body.name,req.body)
                
-                if(d.name === req.body[e] && d.password === req.body[e]) {
+                if(d.name === req.body.name && d.password === req.body.password) {
                    res.send('checked successfully !')
                 }else{
                     console.log('nope')
@@ -41,7 +42,7 @@ app.post('/login',async (req, res) => {
     }catch(e){
         console.log(e)
     }
-    console.log('req.body',req.body[e].name,req.body[e])
+  
 })
 // app.get('https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1',(req, res) =>{
 
