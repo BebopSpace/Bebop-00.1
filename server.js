@@ -22,12 +22,26 @@ app.post('/signup', (req, res) => {
         .then(res => res.send('saved successfully !'))
         .catch(err => res.status(404).send('[server side]', err))
 })
-app.post('/login', (req, res) => {
-    console.log(req.body)
-    const user = new User(req.body)
-    user.find({})
-        .then(res => res.send('saved successfully !'))
-        .catch(err => res.status(404).send('[server side]', err))
+app.post('/login',async (req, res) => {
+    try{
+        console.log(req.body)
+        const data = await User.find({})
+        console.log('data===>',data)
+        for(var d of data) {
+            // console.log('d',d.name, d.password)
+            for(var e in req.body) {
+               
+                if(d.name === req.body[e] && d.password === req.body[e]) {
+                   res.send('checked successfully !')
+                }else{
+                    console.log('nope')
+                }
+            }
+        }
+    }catch(e){
+        console.log(e)
+    }
+    console.log('req.body',req.body[e].name,req.body[e])
 })
 // app.get('https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1',(req, res) =>{
 

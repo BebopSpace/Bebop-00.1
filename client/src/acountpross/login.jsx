@@ -14,10 +14,9 @@ class Login extends React.Component {
         // this.check = this.check.bind(this);
         this.getInpValue = this.getInpValue.bind(this);
     }
-    componentDidMount() {
-        axios.post('/signup',this.state)
-        .then(results => this.setState({ name : results.data }))
-        .then(results => this.setState({ password : results.data }))
+    chek() {
+        axios.post('/login',this.state)
+        .then(res => console.log(res))
         .catch(err => console.log('[client side login]',err))
     }
 
@@ -28,7 +27,7 @@ class Login extends React.Component {
     // check() {
     //     if(this.state.name === this.state.signUpData.name && this.state.password === this.state.signUpData.password){ return <Nav/> } }
     render() {
-        const btn = <button type="button" className="btn btn-dark"  >Submit</button>
+        const btn = <button type="button"onClick={this.chek.bind(this)} className="btn btn-dark"  >Submit</button>
         return (
             <div className="form-group">
                 {/* <div className="input-group mb-3"> */}
@@ -42,3 +41,5 @@ class Login extends React.Component {
 }
 export default Login;
 // onClick={() => this.check()}
+   // .then(results => this.setState({ name : results.data }))
+        // .then(results => this.setState({ password : results.data }))

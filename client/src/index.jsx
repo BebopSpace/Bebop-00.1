@@ -28,42 +28,46 @@ class Index extends React.Component {
         });
         // console.log('current view ===> ', this.state.views)
     }
-
+    
     renderView() { }
 
     render() {
         const view = this.state.view;
 
-        if (view === "home") {
-            return <Home  handleClick={() => this.changeView('')}/>;
-        } else if (view === "about") {
-            return <About  handleClick={() => this.changeView('')}/>;
-        } else if (view === "contact") {
-            return <Contact  handleClick={() => this.changeView('')}/>;
-        } else if (view === "signup") {
-            return <Signup  handleClick={() => this.changeView('')}  />;
-        } else if (view === "login") {
-            return <Login  handleClick={() => this.changeView('')}  />;
-        } else {
-            const viewsElements = this.state.views.map((v, key) => {
-                // console.log('test===>',v)
-                return (
-                 
-                    <div
-                    key={key}
-                    className="navbar-brand"
-                    value={v}
-                    onClick={() => this.changeView(v)}
-                >
+        
+        const viewsElements = this.state.views.map((v, key) => 
+                   
+                     
+            <div
+            key={key}
+            className="navbar-brand"
+            value={v}
+            onClick={() => this.changeView(v)}
+        >
 
-                    {v}
-                    </div>
+            {v}
+            </div>
 
-                );
-            });
-
-            return <div className="navbar navbar-dark bg-dark">{viewsElements} </div>;
+        
+        )
+            return (
+            <div>
+            <div className="navbar navbar-dark bg-dark">{viewsElements} </div>
+           { (view === "home") ?
+                <Home  handleClick={() => this.changeView('')}/>
+            : (view === "about") ?
+                 <About  handleClick={() => this.changeView('')}/>
+            : (view === "contact") ?
+                 <Contact  handleClick={() => this.changeView('')}/>
+             : view === "signup" ?
+                <Signup  handleClick={() => this.changeView('')}  />
+            : (view === "login") ?
+                <Login  handleClick={() => this.changeView('')}  />
+            : null
+            }
+                </div>
+            )
         }
     }
-}
+
 ReactDOM.render(<Index />, document.getElementById("root"));
