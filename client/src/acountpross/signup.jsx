@@ -39,16 +39,16 @@ class Signup extends React.Component {
     render() {
         const submit = <button onClick={() => this.changeView('logIn')}  onClick={() => this.sign()} className="btn btn-dark">Submit</button>
         return (
-            <div className="signUp">
-                <div className="input-group mb-3">
+            // <div className="signUp">
+                <div className="form-group">
                     <input type="text" className="form-control" placeholder="Enter your name..." onChange={(event) => this.getValues(event, 'name')} value={this.state.name}></input>
                     <input type="text" className="form-control" placeholder="Enter your Lastname..." onChange={(event) => this.getValues(event, 'lastName')} value={this.state.lastName}></input>
                     <input type="text" className="form-control" placeholder="Enter your Email..." onChange={(event) => this.getValues(event, 'email')} value={this.state.email}></input>
                     <input type="text" className="form-control" placeholder="Enter your Age..." onChange={(event) => this.getValues(event, 'age')} value={this.state.age}></input>
-                    <input type="text" className="form-control" placeholder="Enter your Password..." onChange={(event) => this.getValues(event, 'password')} value={this.state.password}></input>
+                    <input type="password" className="form-control" placeholder="Enter your Password..." onChange={(event) => this.getValues(event, 'password')} value={this.state.password}></input>
                     {submit}
                 </div>
-            </div>
+            // </div>
 
 
         )

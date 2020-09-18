@@ -6,7 +6,7 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Signup from "./acountpross/signup.jsx";
 import Login from "./acountpross/login.jsx";
-import Main from "./catalog/main.jsx";
+// import Main from "./catalog/main.jsx";
 class Index extends React.Component {
     constructor(props) {
         super(props);
@@ -20,11 +20,11 @@ class Index extends React.Component {
     }
 
     changeView(view) {
-        // console.log('target ===>',event.target);
+        // console.log('target ===>',event.target.value);
         console.log("view ===>", view);
         this.state.view = view;
         this.setState({
-            view: this.state.view,
+            view: this.state.view
         });
         // console.log('current view ===> ', this.state.views)
     }
@@ -48,15 +48,17 @@ class Index extends React.Component {
             const viewsElements = this.state.views.map((v, key) => {
                 // console.log('test===>',v)
                 return (
+                 
                     <div
-                        key={key}
-                        className="navbar-brand"
-                        value={v}
-                        onClick={() => this.changeView(v)}
-                    >
+                    key={key}
+                    className="navbar-brand"
+                    value={v}
+                    onClick={() => this.changeView(v)}
+                >
 
-                        {v}
+                    {v}
                     </div>
+
                 );
             });
 
@@ -64,5 +66,4 @@ class Index extends React.Component {
         }
     }
 }
-
 ReactDOM.render(<Index />, document.getElementById("root"));

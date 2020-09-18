@@ -11,7 +11,7 @@ class Login extends React.Component {
             //     password: ''
             // }
         }
-        this.check = this.check.bind(this);
+        // this.check = this.check.bind(this);
         this.getInpValue = this.getInpValue.bind(this);
     }
     componentDidMount() {
@@ -25,19 +25,20 @@ class Login extends React.Component {
         this.setState({ [text]: event.target.value })
     }
     // onclick button
-    check() {
-        if(this.state.name === this.state.signUpData.name && this.state.password === this.state.signUpData.password){ return <Nav/> } }
+    // check() {
+    //     if(this.state.name === this.state.signUpData.name && this.state.password === this.state.signUpData.password){ return <Nav/> } }
     render() {
-        const btn = <button type="button" className="btn btn-dark"  onClick={() => this.check()}>Submit</button>
+        const btn = <button type="button" className="btn btn-dark"  >Submit</button>
         return (
-            <div className="login">
-                <div className="input-group mb-3">
-                    <input type="text" className="form-control" className="form-control mr-sm-2" onChange={(event) => this.check(event, 'name')} value={this.state.name}></input>
-                    <input type="text" className="form-control" className="form-control mr-sm-2" onChange={(event) => this.check(event, 'password')} value={this.state.password}></input>
+            <div className="form-group">
+                {/* <div className="input-group mb-3"> */}
+                    <input type="text" className="form-control" onChange={(event) => this.getInpValue(event, 'name')} value={this.state.name}></input>
+                    <input type="password" className="form-control" onChange={(event) => this.getInpValue(event, 'password')} value={this.state.password}></input>
                     {btn}
-                </div>
+                {/* </div> */}
             </div>
         )
     }
 }
 export default Login;
+// onClick={() => this.check()}
