@@ -22,13 +22,14 @@ app.post('/signup', (req, res) => {
         .then(res => res.send('saved successfully !'))
         .catch(err => res.status(404).send('[server side]', err))
 })
+
+
 app.post('/login',async (req, res) => {
     try{
         console.log(req.body)
         const data = await User.find({})
         console.log('data===>',data)
         for(var d of data) {
-            // console.log('d',d.name, d.password)
             for(var e in req.body) {
                 console.log('req.body',req.body.name,req.body)
                

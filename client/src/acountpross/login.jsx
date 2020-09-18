@@ -28,6 +28,7 @@ class Login extends React.Component {
     //     if(this.state.name === this.state.signUpData.name && this.state.password === this.state.signUpData.password){ return <Nav/> } }
     render() {
         const btn = <button type="button"onClick={this.chek.bind(this)} className="btn btn-dark"  >Submit</button>
+        const forgotPass = <span onclick={this.changeView()}>Forgot Password !</span>
         return (
             <div className="form-group">
                 {/* <div className="input-group mb-3"> */}
